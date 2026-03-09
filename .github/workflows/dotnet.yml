@@ -2,12 +2,10 @@ trigger:
 - main
 
 variables:
-- group: my-variable-group   # Variable group name
+- template: project.yml
 
 jobs:
-- job: ReadVariableGroup
-  displayName: Read variables from group
-
+- job: ReadVariables
   pool:
     vmImage: ubuntu-latest
 
@@ -15,4 +13,4 @@ jobs:
   - script: |
       echo "Value of myVariable: $(myVariable)"
       echo "Value of anotherVar: $(anotherVar)"
-    displayName: Print variable group values
+    displayName: Read variables from project.yml
