@@ -1,16 +1,16 @@
-# main.yml
-
 trigger:
 - main
 
 variables:
-- group: my-variable-group # Reference the variable group by name
+- group: my-variable-group
 
-pool:
-  vmImage: 'ubuntu-latest'
+jobs:
+- job: ReadVariables
+  pool:
+    vmImage: ubuntu-latest
 
-steps:
-- script: |
-    echo "The value of myVariable is: $(myVariable)"
-    echo "The value of anotherVar is: $(anotherVar)"
-  displayName: 'Read group variables'
+  steps:
+  - script: |
+      echo "The value of myVariable is: $(myVariable)"
+      echo "The value of anotherVar is: $(anotherVar)"
+    displayName: 'Read group variables'
