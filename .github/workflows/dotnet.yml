@@ -2,15 +2,17 @@ trigger:
 - main
 
 variables:
-- group: my-variable-group
+- group: my-variable-group   # Variable group name
 
 jobs:
-- job: ReadVariables
+- job: ReadVariableGroup
+  displayName: Read variables from group
+
   pool:
     vmImage: ubuntu-latest
 
   steps:
   - script: |
-      echo "The value of myVariable is: $(myVariable)"
-      echo "The value of anotherVar is: $(anotherVar)"
-    displayName: 'Read group variables'
+      echo "Value of myVariable: $(myVariable)"
+      echo "Value of anotherVar: $(anotherVar)"
+    displayName: Print variable group values
