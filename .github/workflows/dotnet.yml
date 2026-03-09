@@ -1,3 +1,16 @@
-- name: Print Message
-  ansible.builtin.debug:
-    msg: "Hello from Ansible"
+# main.yml
+
+trigger:
+- main
+
+variables:
+- group: my-variable-group # Reference the variable group by name
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- script: |
+    echo "The value of myVariable is: $(myVariable)"
+    echo "The value of anotherVar is: $(anotherVar)"
+  displayName: 'Read group variables'
