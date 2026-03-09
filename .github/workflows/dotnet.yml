@@ -2,7 +2,7 @@ trigger:
 - main
 
 variables:
-- template: project.yml
+- template: roject.yml
 
 jobs:
 - job: ReadVariables
